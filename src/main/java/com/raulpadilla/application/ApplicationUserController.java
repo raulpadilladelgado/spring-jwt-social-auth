@@ -1,7 +1,6 @@
 package com.raulpadilla.application;
 
 import com.raulpadilla.domain.ApplicationUser;
-import com.raulpadilla.infrastructure.repository.ApplicationUserRepository;
 import com.raulpadilla.infrastructure.service.ApplicationUserService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,12 +12,9 @@ import java.io.IOException;
 @RestController
 @RequestMapping("/users")
 public class ApplicationUserController {
-    private final ApplicationUserRepository applicationUserRepository;
     private final ApplicationUserService applicationUserService;
 
-    public ApplicationUserController(ApplicationUserRepository applicationUserRepository,
-                                     ApplicationUserService applicationUserService) {
-        this.applicationUserRepository = applicationUserRepository;
+    public ApplicationUserController(ApplicationUserService applicationUserService) {
         this.applicationUserService = applicationUserService;
     }
 
